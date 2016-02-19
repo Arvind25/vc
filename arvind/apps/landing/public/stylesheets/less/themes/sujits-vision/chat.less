@@ -1,0 +1,116 @@
+@import "./variables.less";
+@import "../../mixins/elements";
+
+@start-color : lighten(@brand-primary, 40%);
+.color-palette(@color, @swatches, @index: 0) when (@index =< (@swatches - 1)) {
+
+	@step : 360/@swatches;
+	@mycolor : spin(@color, (90 * @step) + (@index * @step));
+	&.swatch-@{index} {
+		.lcb-initial, .lcb-message-meta {
+			background-color: @mycolor;
+			&:after {
+				background: @mycolor;
+			}
+		}
+	}
+
+	.color-palette(@color, @swatches, (@index + 1));
+}
+
+.lcb-room-header {
+	background: transparent;
+	.drop-shadow2(0px, 8px, 12px, -8px, 0.6);
+
+	body.av-fullscreen & svg path {
+		fill: white;
+	}
+}
+
+.lcb-message, .lcb-message-own {
+	font-size : 1em;
+
+	.lcb-message-time {
+		font-size : 0.8em;
+	}
+	img {
+		margin-top : 0.5em;
+	}
+
+	& .lcb-initial {
+		color: white;
+	}
+	& .lcb-message-name {
+		border-bottom: 1px solid @text-color;
+	}
+	& .lcb-message-displayname {
+		font: normal 1em @font-bold;
+	}
+	&.lcb-message-mentioned {
+		background: #ffe9ee;
+	}
+	&.lcb-message-mentioned:before {
+		background: #f22472;
+	}
+	pre {
+		background: none;
+	}
+
+	.color-palette(@start-color, 12);
+}
+
+.lcb-message-own {
+	color: @gray-darker;
+
+	& .lcb-initial {
+		background-color: @gray-lighter;
+	}
+	& .lcb-message-meta {
+		background : @gray-lighter;
+		&:after {
+			background-color: @gray-lighter;
+		}
+	}
+
+	& .lcb-message-name {
+		border-bottom: 1px solid @gray-darker;
+	}
+}
+
+.lcb-room-heading {
+	body.av-fullscreen & svg:hover {
+		cursor: pointer;
+		path {
+			fill: @brand-warning;
+		}
+	}
+}
+
+.lcb-notification-bar {
+	color: @brand-primary;
+	body.av-fullscreen & {
+		color: white;
+	}
+}
+.lcb-entry {
+	.drop-shadow2(0px, -8px, 12px, -8px, 0.6);
+	border-top : 1px solid @gray-lighter;
+	background: transparent;
+	textarea {
+		background: transparent;
+	}
+	body.av-fullscreen & {
+		textarea.lcb-entry-input {
+			color: white;
+		}
+	}
+}
+.lcb-entry-button {
+	font-size: 2em !important;
+	padding-right: 7px;
+
+	&:hover {
+		color: @brand-warning;
+	}
+}
+

@@ -1,0 +1,34 @@
+.tooltip-content
+	.av-tooltip-outer
+		div.name
+			span.name
+			include images/camera-slash.svg
+			include images/camera.svg
+			include images/microphone58-slashed.svg
+			include images/microphone58.svg
+		div.debug
+			span.nickname
+			span.vc_id
+		table
+			tr
+				td.text-left.text-warning
+					span Audio
+				td.text-right
+					span.audio-bw
+				td.text-right
+					span (
+					span.text-danger.audio-loss
+					span /
+					span.audio-rx
+					span )
+			tr
+				td.text-left.text-warning
+					span Video
+				td.text-right
+					span.video-bw
+				td.text-right
+					span (
+					span.text-danger.video-loss
+					span /
+					span.video-rx
+					span )

@@ -1,0 +1,13 @@
+.remodal(data-remodal-id="upload")
+	button.remodal-close(data-remodal-action="close")
+	span.level
+	h1 Content Upload
+	.remodal-content
+		p Upload content from desktop or paste shared content url
+	br
+	input(id="urlInput",type="text",style="width:400px",value="http://115.249.65.132:8080/content/A2.pdf")
+	br
+	input(type="file",accept=".pptx,.ppt,.doc,.pdf", id="uploadFile" , style="display:inline-block")
+	input(id="uploadBtn" name="submit", type="submit" value="upload")
+	button.remodal-cancel(data-remodal-action="cancel", style="display:none;") Cancel
+	button.remodal-confirm(data-remodal-action="confirm", style="display:none;") Confirm

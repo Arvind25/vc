@@ -1,0 +1,52 @@
+#widget-nav.vc-widget.navbar.navbar-default.navbar-fixed-top(role='navigation')
+	.nav-inner
+		.navbar-header
+			button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+				span.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.navbar-brand(href='#')
+				img.img-responsive(src='/landing/images/wiziq-logo-new.png')
+		.navbar-collapse.collapse
+			ul.nav.navbar-nav
+				li
+					a(href='#') Home
+
+			ul.nav.navbar-nav.navbar-right
+				li#layout
+					a.tooltip(href='#')
+						include images/top-bar/layout2.svg
+						div.tooltip-content Layout Change
+				li#nav-screenshare.disabled
+					a.tooltip(href='#')
+						include images/top-bar/share-screen.svg
+						div.tooltip-content Screenshare
+				li#nav-upload
+					a(href='#')
+						include images/top-bar/attendees.svg
+				li.disabled
+					a.tooltip(href='#')
+						include images/top-bar/notification.svg
+						div.tooltip-content Notifications
+				li.disabled
+					a.tooltip(href='#')
+						include images/top-bar/chat.svg
+						div.tooltip-content Chat
+				li.disabled
+					a.tooltip(href='#')
+						include images/top-bar/notes.svg
+						div.tooltip-content Notes
+				li.disabled
+					a.tooltip(href='#')
+						include images/top-bar/polls.svg
+						div.tooltip-content Polls
+				li#nav-attendees.disabled
+					a.tooltip(href='#')
+						include images/top-bar/attendees.svg
+						div.tooltip-content People
+				li
+					a#vc-menu(href='#')
+						include images/top-bar/hamburger.svg
+						nav#menu-side
+							ul

@@ -1,0 +1,70 @@
+@import "./variables.less";
+@import "./mixins.less";
+
+#widget-chat {
+	position: absolute;
+	margin-left:   @padding-side;
+	margin-right:   @gutter-northsouth / 2;
+	margin-bottom:   @margin-bottom;
+	left:     0;
+	bottom:   0;
+}
+
+#widget-chat .main-inner {
+	width: 100%;
+	height: 100%;
+}
+
+.set-chat-params(@top, @width) {
+	#widget-chat {
+		top: @top;
+		width: @width;
+	}
+	body.av-fullscreen #widget-chat {
+		left: calc(~'-@{width} - @{padding-side}');
+		svg {
+			left: calc(~'@{padding-side} + @{width}');
+		}
+	}
+	body.av-tiled #widget-chat {
+		left: calc(~'-@{width} - @{padding-side}');
+		svg {
+			left: 0;
+		}
+	}
+}
+
+body.av-fullscreen #widget-chat {
+	height : calc(~'100vh - @{nav-height-effective}');
+	top : @nav-height-effective;
+	z-index: 3;
+	padding-top: 5px;
+
+	transition: height .2s ease-out;
+	-webkit-transition: height .2s ease-out;
+	-moz-transition: height .2s ease-out;
+
+	transition: left .2s ease-out;
+	-webkit-transition: left .2s ease-out;
+	-moz-transition: left .2s ease-out;
+
+	 &.chat-fullheight {
+		 left: 0;
+		 transition: left .2s ease-out;
+		 -webkit-transition: left .2s ease-out;
+		 -moz-transition: left .2s ease-out;
+
+		 animation : fade-in 1s ease-out both;
+		 -webkit-animation : fade-in 1s ease-out both;
+		 -moz-animation : fade-in 1s ease-out both;
+	 }
+}
+
+@keyframes fade-in {
+	0% {
+		opacity : 0;
+	}
+	100% {
+		opacity : 1;
+	}
+}

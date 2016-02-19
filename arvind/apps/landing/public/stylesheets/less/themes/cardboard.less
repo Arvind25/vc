@@ -1,0 +1,155 @@
+@import "../mixins/elements";
+
+@font-face {
+	font-family: 'Franchise';
+	src: url('./fonts/Franchise-Bold/Franchise-Bold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'RBNo2';
+	src: url('./fonts/RBNo2/RBNo2Light.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Outage';
+	src: url('./fonts/Outage/Outage.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p {
+	font-family:'RBNo2', 'Sans-serif';
+}
+
+.shadow-more {
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+	-webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.shadow-lighter {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+#vc-main-outer {
+}
+
+#vc-main-inner {
+	background-image: url('/landing/images/cardboard.jpg');
+	background-repeat : repeat;
+}
+
+#widget-nav {
+	color: white;
+	padding: 5px;
+}
+
+#widget-nav .nav-inner {
+	span.vc-menu-icon {
+		font-size : 28px;
+		margin-top: 10px;
+		margin-left: 20px;
+	}
+}
+
+#widget-notify {
+}
+
+#widget-side-left {
+}
+
+#widget-tabs {
+	background-color: rgba(21, 11, 0, 0.65);
+	.shadow-more;
+}
+
+#widget-av {
+	background-color: black;
+	.shadow-more;
+}
+
+#widget-chat {
+	background-color: white;
+	.shadow-more;
+}
+
+#widget-side-right {
+}
+
+/*----------------------------------------------
+ * 
+ * Resource specific themeing
+ *
+ *----------------------------------------------*/
+
+/* Flipboard */
+
+#widget-tabs .bb-item {
+	background-image: url('./images/w2.jpg');
+	background-repeat: repeat;
+}
+
+#widget-tabs .bb-content {
+	background-image: url('./images/w2.jpg');
+	background-repeat: repeat;
+}
+
+#widget-tabs .bb-flipoverlay {
+	background-image: url('./images/w2-darker.jpg');
+	background-repeat: repeat;
+}
+
+/* cube */
+
+.inner-shadow2(@horizontal:0, @vertical:1px, @blur:2px, @color:rgba(0, 0, 0, 0.4)) {
+	-webkit-box-shadow: inset @horizontal @vertical @blur @color;
+	-moz-box-shadow: inset @horizontal @vertical @blur @color;
+	box-shadow: inset @horizontal @vertical @blur @color;
+}
+
+.cube > div {
+	position: absolute;
+	border: 1px solid rgba(200, 200, 200, 0.3);
+	background: rgba(255, 255, 255, 0.3);
+	.inner-shadow2(0, 0, 10px, rgba(0, 0, 0, 0.6));
+	box-sizing: border-box;
+	padding: 10px;
+	height: 100%;
+	width: 100%;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.center .cube > div {
+	position: absolute;
+	border: 1px solid rgba(200, 200, 200, 0.3);
+	background: rgba(255, 255, 255, 0.5);
+	.inner-shadow2(0, 0, 120px, rgba(0, 0, 0, 0.3));
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	color: #fff;
+	line-height: 120px;
+	text-align: center;
+	font-size: 120px;
+	padding-top: 40px;
+}
+
+.cube > div.protrude {
+	display: none;
+	border: none;
+	background-color: none;
+}
+.center .cube > div.protrude {
+	display: block;
+	border: none;
+	.inner-shadow2(0, 0, 10px, rgba(255, 255, 255, 0.9));
+}

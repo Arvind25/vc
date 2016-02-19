@@ -1,0 +1,12 @@
+li.atl-list-item.list-group-item
+	.att_id(style="display:none") #{att_id}
+	.atl-avatar-wrap
+		img.atl-avatar.avatar(src= "#{avatar}", style="display: inline-block;")
+	.atl-user-meta(style="display:inline-block")
+		.atl-user-meta-header.border-bottom
+			span.atl-username.displayName.text-warning #{displayName} 
+			time.atl-join-time.time.text-info #{time}
+		.atl-user-meta-others
+			span.atl-useremail.email.text-warning #{email}
+			span.atl-authvia.authvia.text-info   via: #{authvia}
+		include controlbar

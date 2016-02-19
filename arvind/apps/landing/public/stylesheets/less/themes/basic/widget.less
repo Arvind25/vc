@@ -1,0 +1,84 @@
+@import "variables.less";
+
+.vc-widget {
+	border:           @widget-border-width @widget-border-style @widget-border-color;
+	background-color: @widget-bg-color;
+	color:            @widget-fg-color;
+}
+
+.vc-side-widget {
+	position:         relative;
+}
+
+.vc-footer {
+  position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+#widget-top {
+	height: @widget-top-height;
+	width: 100%;
+}
+
+#widget-notify {
+	height: @widget-notify-height;
+	width: 100%;
+}
+
+#widget-side-left {
+	width:    @widget-left-side-width;
+	position: absolute;
+	top:      @widget-top-height;
+	bottom:   @widget-notify-height;
+}
+
+@tabs-width: calc(~'(100% - @{widget-left-side-width} - @{widget-right-side-width}) * @{widget-tabs-width}');
+
+#widget-tabs {
+	position: absolute;
+	width:    @tabs-width;
+	left:     @widget-left-side-width;
+	top:      @widget-top-height;
+	bottom:   @widget-notify-height;
+}
+
+@av-width: calc(~'(100% - @{widget-left-side-width} - @{widget-right-side-width}) * @{widget-av-width}');
+
+#av-chat-container {
+	position: absolute;
+	width:    @av-width;
+	right:    @widget-right-side-width;
+	top:      @widget-top-height;
+	bottom:   @widget-notify-height;
+}
+
+@av-bottom: calc(~'(100%) * @{widget-chat-height}');
+
+#widget-av {
+	position: absolute;
+	width:    100%;
+	left:     0;
+	top:      0;
+	bottom:   @av-bottom;
+}
+
+@chat-top: calc(~'(100%) * @{widget-av-height}');
+
+#widget-chat {
+	position: absolute;
+	width:    100%;
+	min-width:0;
+	left:     0;
+	top:      @chat-top;
+	bottom:   0;
+}
+
+#widget-side-right {
+	width:    @widget-right-side-width;
+	position: absolute;
+	top:      @widget-top-height;
+	bottom:   @widget-notify-height;
+	right:    0;
+}
+

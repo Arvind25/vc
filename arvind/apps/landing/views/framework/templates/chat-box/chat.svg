@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>Chat</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Sidebar-Icons" sketch:type="MSLayerGroup" transform="translate(-99.000000, -2.000000)">
+            <g id="Chat" transform="translate(97.000000, 0.000000)" sketch:type="MSShapeGroup">
+                <path d="M0,0.024 L24,0.024 L24,24.024 L0,24.024 L0,0.024 Z" id="Bounds"></path>
+                <path d="M21,6.024 L19,6.024 L19,15.024 L6,15.024 L6,17.024 C6,17.574 6.45,18.024 7,18.024 L18,18.024 L22,22.024 L22,7.024 C22,6.474 21.55,6.024 21,6.024 L21,6.024 Z M17,12.024 L17,3.024 C17,2.474 16.55,2.024 16,2.024 L3,2.024 C2.45,2.024 2,2.474 2,3.024 L2,17.024 L6,13.024 L16,13.024 C16.55,13.024 17,12.574 17,12.024 L17,12.024 Z" id="Shape" fill="#607D8B"></path>
+            </g>
+        </g>
+    </g>
+</svg>

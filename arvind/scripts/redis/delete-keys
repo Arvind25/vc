@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#
+# Calculate canonical path for this script's directory
+#
+CANPATH=`pwd`/`dirname $0`
+
+JQ=$CANPATH/../bin/jq-linux64
+REDIS_CLI=$CANPATH/../../ext/redis-3.0.3/src/redis-cli
+
+[ $# -lt 1 ] && { echo Usage : `basename $0` keys '[-y]'; exit 1; }
+KEYS=$1
+YES=$2
+
+echo +------------------------------------------------+
+echo +                                 
+echo + Listing the values for key : '(' "$KEYS" ')'
+echo +                                 
+echo +------------------------------------------------+
+
+$REDIS_CLI KEYS "$KEYS"
+
+[ "$YES" == '' ] && {
+		echo +------------------------------------------------+
+		echo +                                 
+		echo + Keys not really deleted. Run "`basename $0` keys -y" to really delete.
+		echo +                                 
+		echo +------------------------------------------------+
+		exit 0;
+}
+
+$REDIS_CLI KEYS $KEYS | xargs $REDIS_CLI DEL

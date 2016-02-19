@@ -1,0 +1,37 @@
+@import "./variables.less";
+
+#widget-screenshare {
+	width : 0;
+
+	&.active {
+		margin-top:   @nav-height-effective;
+		margin-left:   @gutter-northsouth / 2;
+		margin-right:   @padding-side;
+		margin-bottom:   @margin-bottom;
+		position: absolute;
+		top:      0px;
+		right:    0px;
+		bottom:   0px;
+		overflow: hidden;
+	}
+
+	body.av-fullscreen &.active {
+		margin-top:   @nav-height-effective + 10px;
+		margin-left:   @padding-side + 10px;
+		position: absolute;
+		top:      0px;
+		left:     0px;
+	}
+}
+
+
+.set-screenshare-size (@width) {
+	#widget-screenshare.active {
+		width : calc(~'100% - @{width} - @{padding-side} * 2 - @{gutter-northsouth}');
+	}
+
+	body.av-fullscreen #widget-screenshare.active {
+		width : @width / 2;
+		height : @width / 2;
+	}
+}

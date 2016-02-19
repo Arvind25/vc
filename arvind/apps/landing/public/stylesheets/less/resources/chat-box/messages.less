@@ -1,0 +1,222 @@
+/*********************
+ * Messages
+ *********************/
+@import "flexbox.less";
+@import "hat.less";
+
+@messagePadding: 7px;
+@margin-message-bottom: 0.5em;
+
+.make_triangle() {
+	content:"";
+	position:absolute;
+	bottom:-15px; /* value = - border-top-width - border-bottom-width */
+	left:50px; /* controls horizontal position */
+	border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#f3961c transparent;
+	/* reduce the damage in FF3.0 */
+	display:block;
+	width:0;
+}
+
+.triangle_left() {
+	top:0px; /* controls vertical position */
+	left:-6px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+	border-width:0px 12px 16px 0;
+	border-color:transparent #f3961c;
+}
+
+.triangle_right() {
+	top:0px; /* controls vertical position */
+	left: initial;
+	right:-6px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+	border-width:0 0 16px 12px;
+}
+
+.pipe_horizontal(@left, @right) {
+	position: absolute;
+	content:"";
+	top:15px;
+	left: @left;
+	right:@right;
+	width: 10px;
+	height: 3px;
+	bottom:auto;
+	border-width:0;
+}
+
+.pipe_vertical(@left, @right) {
+	position: absolute;
+	content:"";
+	top:-10px;
+	left: @left;
+	right:@right;
+	width: 3px;
+	height: 10px;
+	bottom:auto;
+	border-width:0;
+}
+
+.gradient(@start, @end) {
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(@start), to(@end));
+	background:-moz-linear-gradient(@start, @end);
+	background:-o-linear-gradient(@start, @end);
+	background:linear-gradient(@start, @end);
+}
+
+.round-corners(@top, @right:@top, @bottom:@top, @left:@top) {
+	-webkit-border-radius:@top @right @bottom @left;
+	-moz-border-radius:@top @right @bottom @left;
+	border-radius:@top @right @bottom @left;
+}
+
+.lcb-messages {
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    .flex(1 0 0);
+    .transform(translate3d(0,0,0));
+}
+
+.lcb-message, .lcb-message-own {
+    min-height: 20px;
+	padding-top: 1px;
+	padding-right : 7px;
+	padding-left : 7px;
+	padding-bottom : 0px;
+    font-size: 1.5em;
+    margin: 0;
+    display: block;
+    position: relative;
+}
+
+.lcb-message, .lcb-message-own {
+    &:first-child {
+        border-top: none;
+    }
+    &.lcb-message-fragment {
+        min-height: 0;
+        margin-top: -@messagePadding / 2;
+        border-top: none;
+    }
+    pre {
+		font-family: inherit;
+        background: none;
+        border-width: 3px;
+        border-top: none;
+        border-bottom: none;
+        margin-bottom: 3px;
+		margin-top: 0px;
+    }
+    span.lcb-message-displayname {
+        font-weight: bold;
+    }
+    span.lcb-message-displayname::after {
+		content: " says:";
+        font-weight: light;
+        font-size: x-small;
+    }
+
+	.lcb-message-meta {
+		position:relative;
+		padding:8px;
+		.round-corners(10px, 10px, 10px, 10px);
+		margin-top: 0;
+		margin-right: 0;
+		margin-left:40px;
+		margin-bottom: @margin-message-bottom;
+		background:#f3961c;
+	}
+}
+
+.lcb-message {
+	.lcb-message-meta:after {
+		.pipe_horizontal(-6px, initial);
+	}
+}
+
+.lcb-message.lcb-fragment {
+	.lcb-message-meta:after {
+		.pipe_vertical(30px, initial);
+	}
+}
+
+.lcb-message-own {
+	.lcb-message-meta {
+		margin-right: 40px;
+		margin-left: 0px;
+	}
+
+	.lcb-message-meta:after {
+		.pipe_horizontal(initial, -6px);
+	}
+}
+
+.lcb-message-own.lcb-fragment {
+	.lcb-message-meta {
+		margin-right: 40px;
+		margin-left: 0px;
+	}
+
+	.lcb-message-meta:after {
+		.pipe_vertical(initial, 30px);
+	}
+}
+
+.lcb-initial {
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+	font-size: 1.7em;
+	font-weight: bold;
+	text-align: center;
+	position: absolute;
+	.lcb-message-own & {
+		right : 7px;
+	}
+}
+.lcb-message-avatar {
+	position: absolute;
+	.round-corners(50%);
+}
+
+.lcb-message-name {
+    font-weight: 700;
+    margin-bottom: @messagePadding - 2px;
+    display: block;
+
+    .lcb-message-username {
+        font-weight: 400;
+    }
+}
+
+.lcb-message-time {
+	float: right;
+}
+
+
+.lcb-message-text {
+	word-wrap: break-word;
+}
+
+.lcb-message-mention {
+    font-weight: bold;
+}
+
+// Eugh Firefox
+@-moz-document url-prefix() {
+    .lcb-message-text {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+        word-break: break-all;
+        pre {
+            white-space: pre-wrap;
+        }
+    }
+}
+

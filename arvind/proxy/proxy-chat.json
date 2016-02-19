@@ -1,0 +1,13 @@
+{
+  "apps" : [{
+    "name"        : "proxy-chat",
+    "script"      : "proxy-chat.js",
+    "args"        : [],
+    "node_args"   : "",
+    "merge_logs"  : true,
+    "cwd"         : "",
+    "env": {
+        "NODE_ENV": "production"
+    }
+  }]
+}

@@ -1,0 +1,19 @@
+include header
+
+body
+	#vc-main-outer
+		#vc-main-inner
+			include widget-top
+			include widget-side-left
+			include widget-tabs
+			include widget-av
+			include widget-chat
+			include widget-side-right
+			include widget-notify
+			
+			//
+			// Load Templates
+			//
+			script(type="text/javascript")
+				|var _templates = !{_templates};
+

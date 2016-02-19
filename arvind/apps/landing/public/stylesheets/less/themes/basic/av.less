@@ -1,0 +1,103 @@
+@import "variables.less";
+
+@avcontrols-height: 30px;
+.avcontrols {
+  position: absolute;
+  height: @avcontrols-height;
+}
+
+.main-inner {
+}
+
+@avcswidth: calc(~'(100% - @{widget-left-side-width} - @{widget-right-side-width}) * @{widget-av-width}');
+@avcsheight: calc(~'(100% - @{widget-top-height} - @{avcontrols-height} - @{widget-notify-height}) * @{widget-av-height}');
+@avcsleft: calc(~'(100% - @{widget-left-side-width}) * @{widget-tabs-width}');
+@avcstop: @avcontrols-height + @widget-top-height;
+@avcsbottom: 0px;
+.avcs {
+  position: absolute;
+  width: 100%;
+  top: @avcstop;
+  bottom: @avcsbottom;
+  border-color:@color-muted;
+  border-width:1px;
+  border-style:solid;
+}
+
+@pubcswidth: calc(~'(100% - 10px) * 0.20');
+@pubcsheight: calc(~'(100% * 0.25');
+.pubcs {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  right: 5px;
+  bottom: 5px;
+  border-color:white;
+  border-width:1px;
+  border-style:solid;
+  -webkit-box-shadow: 3px 3px 10px #333;
+  box-shadow: 3px 3px 10px #333;
+  border: 1px solid #777777;
+  color: #fff0e0;
+  display: inline-block;
+}
+
+.subcs {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+@con-width: calc(~'(100% - @{widget-left-side-width} - @{widget-right-side-width}) * @{widget-tabs-width}');
+
+@avcsbottom: @widget-notify-height;
+.avcs1 {
+  position: absolute;
+  width: 100%;
+  top: @avcontrols-height;
+  bottom: 5px;
+  border-color:@color-muted;
+  border-width:1px;
+  border-style:solid;
+}
+
+@p1h: 80/100;
+@pub-height: calc(~'(100% - @{avcontrols-height}) * @{p1h}');
+.pubcs1 {
+  position: absolute;
+  width: 100%;
+  height: @pub-height;
+  left: 0;
+  top: 0;
+  border-color:white;
+  border-width:1px;
+  border-style:solid;
+  -webkit-box-shadow: 3px 3px 10px #333;
+  box-shadow: 3px 3px 10px #333;
+  border: 1px solid #777777;
+  color: #fff0e0;
+  display: inline-block;
+}
+
+@s1h: 20/100;
+@sub-height: calc(~'(100% - @{avcontrols-height}) * @{s1h}');
+.subcs1 {
+  position: absolute;
+  width: 100%;
+  height: @sub-height;
+  left: 0;
+  bottom: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.avtop {
+  zindex: 1000;	
+}

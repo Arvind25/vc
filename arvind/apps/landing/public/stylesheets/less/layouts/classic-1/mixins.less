@@ -1,0 +1,25 @@
+@import "./variables.less";
+
+.trans-size (@duration : 0.2s) {
+		-webkit-transition : @duration ease;
+		transition : @duration ease;
+}
+
+.tab-position () {
+	margin-top:   @nav-height-effective;
+	margin-left:   @gutter-northsouth / 2;
+	margin-right:   @padding-side;
+	margin-bottom:   @margin-bottom;
+	position: absolute;
+	top:      0px;
+	right:    0px;
+	bottom:   0px;
+	overflow: hidden;
+}
+
+.tab-width (@width-av) {
+	@tab-width : calc(~'100vw - @{width-av} - @{padding-side} * 2 - @{gutter-northsouth}');
+}
+.tab-height () {
+	@tab-height : calc(~'100vh - @{nav-height-effective} - @{margin-bottom}');
+}

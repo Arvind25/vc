@@ -1,0 +1,37 @@
+#!/bin/bash
+
+. common.sh
+BASENAME=`basename $0`
+QUIET=
+#
+#
+# Update Subscription
+#
+
+function usage {
+	echo Usage : $BASENAME 'host-name auth-type client-id client-secret callback-url [ -h host [ -p user:password ] [ options ]';
+	exit 1;
+}
+
+[ $# -lt 5 ] && { usage; }
+
+HOST_NAME=$1; shift;
+AUTH_TYPE=$1; shift;
+CLIENT_ID=$1; shift;
+CLIENT_SECRET=$1; shift;
+CALLBACK_URL=$1; shift;
+
+[ "$USERPASSWORD" != "" ] && { USERPASSWORD='-u '$USERPASSWORD; }
+[ "$HOST" == "" ] && {
+		export HOST=http://localhost:2178;
+}
+
+curl $QUIET $USERPASSWORD -k -H "Content-Type: application/json" -X POST -d '{
+	"hostName" : "'$HOST_NAME'",
+	"authType" : "'$AUTH_TYPE'",
+	"clientID" : "'$CLIENT_ID'",
+	"clientSecret" : "'$CLIENT_SECRET'",
+	"callbackURL" : "'$CALLBACK_URL'"
+}' $HOST/auth/config/add
+
+echo

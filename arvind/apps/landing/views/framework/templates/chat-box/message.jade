@@ -1,0 +1,16 @@
+li(class="#{classs}")
+	if !fragment 
+		//img.lcb-message-avatar.lcb-avatar.lcb-room-poke(src="https://www.gravatar.com/avatar/#{owner.avatar}?s=30")
+		-var initial = owner.displayName.charAt(0)
+		div.lcb-initial #{initial} 
+	.lcb-message-meta
+		if !fragment 
+			div.lcb-message-name
+				div.lcb-room-poke
+					span.lcb-message-displayname #{owner.displayName}
+					time.lcb-message-time #{time}
+		if !paste
+			div.lcb-message-text #{text}
+		else
+			div.lcb-message-text
+				pre #{text}

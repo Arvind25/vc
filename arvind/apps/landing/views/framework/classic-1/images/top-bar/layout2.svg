@@ -1,0 +1,11 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="20px" height="18px" viewBox="0 0 20 18" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="Icons" opacity="1.0">
+	<g id="layout-ltr">
+		<path id="text" fill="#607D8B" d="M5,19V5h6v8h8v6H5z"/>
+		<path id="float" fill="#607D8B" d="M13,5v6h6V5H13z M18,10h-4V6h4V10z"/>
+	</g>
+</g>
+<g id="Guides" display="none">
+</g>
+</svg>

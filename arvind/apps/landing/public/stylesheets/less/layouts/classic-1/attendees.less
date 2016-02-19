@@ -1,0 +1,24 @@
+@import "./variables.less";
+@import "./mixins.less";
+
+#widget-attendees {
+	margin-top:   @nav-height-effective;
+	margin-left:   @gutter-northsouth / 2;
+	margin-right:   @padding-side;
+	margin-bottom:   @margin-bottom;
+	position: absolute;
+	top:      0px;
+	right:    0px;
+	bottom:   0px;
+	overflow: hidden;
+	width:    380px;
+	height: calc(~'100vh - @{nav-height-effective} - @{margin-bottom}');
+	background-color: rgba(0, 0, 0,.7);
+	overflow : scroll;
+
+	.main-inner {
+		width: 100%;
+		height: 100%;
+	}
+}
+

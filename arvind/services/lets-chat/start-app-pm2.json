@@ -1,0 +1,10 @@
+{
+  "apps" : [{
+    "name"        : "lets-chat",
+    "script"      : "app.js",
+    "args"        : [],
+    "node_args"   : "",
+    "merge_logs"  : true,
+    "cwd"         : ""
+  }]
+}

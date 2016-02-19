@@ -1,0 +1,47 @@
+#!/bin/bash
+
+function abs_path () {
+	target=$1;
+	cd $target > /dev/null 2>&1;
+	[ $? -ne 0 ] && { echo Error : directory \"$target\" does not exist; exit 1; }
+	pwd
+	cd - > /dev/null 2>&1;
+}
+
+function check_docker () {
+	command -v docker > /dev/null;
+	[ $? -ne 0 ] && { echo Error : docker not installed; exit 1; }
+}
+
+#
+# Process the arguments
+#
+[ $# -lt 2 ] && { echo Usage : `basename $0` '<lets-chat-dir> <container-name>'; exit 1;}
+
+LETS_CHAT_DIR=$1; shift;
+NAME=$1; shift;
+
+#
+# Do some checks
+#
+check_docker;
+
+ABS_PATH=`abs_path $LETS_CHAT_DIR`
+IMAGE='wiziq/lets-chat:v1'
+#
+# Start
+#
+echo does not work right now
+exit 1
+echo '#########################################################'
+echo '#'
+echo '# Starting docker image : ' $IMAGE
+echo '# <lets-chat-dir>       : ' $ABS_PATH '<==' $LETS_CHAT_DIR
+echo '# <name>                : ' $NAME
+echo '#'
+echo '#########################################################'
+
+#sudo docker run -t -d -v $ABS_PATH:/lets-chat --name $NAME $IMAGE
+sudo docker run -i -t -v $ABS_PATH:/lets-chat --name $NAME $IMAGE
+
+sudo docker logs --follow $NAME

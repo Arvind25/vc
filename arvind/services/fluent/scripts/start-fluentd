@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+if [ $# -lt 1 ];
+then
+	echo "required: <config_file> as an argument"
+	exit 1
+fi
+#echo "checking deps"
+#echo "Check for ruby..TBA"
+
+fluentd -vv -c $*

@@ -1,0 +1,63 @@
+
+@import "./variables.less";
+@import "./mixins.less";
+@import "./container.less";
+@import "./nav.less";
+@import "./av.less";
+@import "./chat.less";
+@import "./tab.less";
+@import "./screenshare.less";
+@import "./attendees.less";
+@import (inline) "./remodal-default-theme.css";
+@import (inline) "./remodal.css";
+
+.set-sizes(@width-av) {
+	@av-width : @width-av;
+	/*
+	 * Video height = primary-video + secondary-video height
+	 *    secondary-video height = 1/4 of primary-video
+	 *    primary-video height = 3/4 of width
+	 *        hence, total height = 15/16 of width
+	 */
+	@av-height: @av-width * 15 / 16;
+	@chat-width : @av-width;
+	@chat-top : @nav-height-effective + @av-height + @gutter-eastwest;
+
+	.set-av-size(@av-width, @av-height);
+	.set-chat-params(@chat-top, @chat-width);
+	.set-screenshare-size(@width-av);
+
+	#widget-tabs {
+		.tab-width(@av-width);
+		width : @tab-width;
+	}
+}
+
+@media @xs-display {
+	.set-sizes(@av-width-xs);
+}
+
+@media @sm-display {
+	.set-sizes(@av-width-sm);
+}
+
+@media @md-display {
+	.set-sizes(@av-width-md);
+}
+
+@media @lg-display {
+	.set-sizes(@av-width-lg);
+}
+
+#widget-side-right {
+	display: none;
+}
+
+#widget-notify {
+	display: none;
+}
+
+#widget-side-left {
+	display: none;
+}
+

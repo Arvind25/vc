@@ -1,0 +1,31 @@
+include header
+//include header-optimized
+
+body
+	#vc-main-outer.remodal-bg
+		include widget-modal
+		include widget-upload
+		#vc-main-inner
+			include blanket
+			include widget-nav
+			include widget-side-left
+			include widget-tabs
+			include widget-av
+			include widget-screenshare
+			include widget-chat
+			include widget-attendees
+			include widget-side-right
+			include widget-notify
+			
+			//
+			// Load Templates
+			//
+			script(type="text/javascript")
+				|var _templates = !{_templates};
+
+			//
+			// Load identity
+			//
+			script(type="text/javascript")
+				|var _identity = !{identity};
+

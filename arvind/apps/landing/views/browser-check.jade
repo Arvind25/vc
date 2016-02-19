@@ -1,0 +1,36 @@
+extends layout
+
+block content
+	.content
+		div(style="display:none;")
+			span #{origin}
+		span Checking browser compatibility ...
+		table#checklist
+			thead
+				tr
+					th Check
+					th Aye/Nay
+			tbody
+				tr
+					td WebRTC Support
+					td.webrtc-support
+				tr
+					td WebSocket Support
+					td.websocket-support
+				tr
+					td SCTP Data Channel Support
+					td.sctp-data-channel-support
+				tr
+					td RTP Data Channel Support
+					td.rtp-data-channel-support
+
+		//span Detecting IP Addresses ...
+		//table#ip-addresses
+		//	tbody
+
+		h4#message
+
+	link(href='/landing/stylesheets/less/site/browser-check.css', type='stylesheet' )
+	script(src='/landing/javascripts/ext/jquery-1.11.3.min.js', type='text/javascript' )
+	script(src='/landing/javascripts/ext/DetectRTC/DetectRTC.min.js', type='text/javascript' )
+	script(src='/landing/javascripts/lib/checkbrowser.js', type='text/javascript' )

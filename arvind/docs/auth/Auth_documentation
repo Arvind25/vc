@@ -1,0 +1,23 @@
+(Assuming that the hostname is "vc.me")
+ 
+1. Add entry corresponding to your hostaname in /etc/hosts file on linux machine.
+   ( Entry :  127.0.0.1 vc.me )
+
+2. Install mongodb and mongoose.js for auth module.
+
+3. To use google auth or fb auth , get corresponding credentials from google developer console or facebook developer console.
+
+4. Add these credentials to "Wiziq_Auth" database created on your local mongodb instance directly using mongodb via terminal or via the restful api provided for the url : https://vc.me/auth/dbEntry
+
+5. Similarly to remove credentials from Wiziq_Auth database , use the url : https://vc.me/auth/dbDelete
+ 
+6. Following are the modified commands to start the Virtual classroom:
+
+   "npm start -- --sess-ip vc.me --ssl=true | bunyan"  in wvc/common/apps
+   
+   "sudo node proxy-chat.js vc.me | bunyan"   in wvc/commom/proxy
+  
+   { To start and use docker, the usual set of commands will work}
+
+
+Note:  By default I have added an entry in Wiziq_Auth database for google auth via the code itself for "akshit.me" . You may use that if u don't want to create your own set of credentials to db.

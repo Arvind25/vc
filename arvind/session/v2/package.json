@@ -1,0 +1,21 @@
+{
+  "name": "session_server",
+  "version": "1.0.0",
+  "description": "Session Server Instance for Virtual Classroom (WizIQ)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Avinash, Saurabh, Pawan",
+  "license": "ISC",
+  "dependencies": {
+    "bunyan": "^1.5.1",
+    "express": "^4.13.3",
+    "jquery-deferred": "^0.3.0",
+    "opentok": "^2.3.0",
+    "restler": "^3.4.0",
+    "winston": "^2.1.0",
+    "ws": "^0.8.0"
+  }
+}

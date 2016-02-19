@@ -1,0 +1,44 @@
+// Mixins
+mixin input(type, id, label)
+  .input-container
+    input(type='#{type}' id='#{id}' required)
+    label(for='#{id}')=label
+    .bar
+mixin button(text)
+  .button-container
+    button
+      span=text
+
+doctype html
+head
+    meta(charset='UTF-8')
+    |     
+    title Login Form
+    |         
+    link(rel='stylesheet', href='/auth/css/style.mat-design.css')
+body
+ .pen-title
+   h1 WizIQ Virtual Classroom (WebRTC Internal Test)
+ .container
+  .options-col
+     .auth-option
+         a(href="#", disabled) A
+     .auth-option
+         a(href="/auth/auth/google")
+           img(src="/auth/images/Google-Plus-icon.png") 
+     .auth-option
+         a(href="/auth/auth/fb")
+           img(src="/auth/images/Facebook-icon.png")
+  .card-block
+    .card
+    .card
+      h1#main-title.title Anonymous
+      h1#cookie-error.title(style="display: none")
+      form
+        +input('text', 'user_id', 'User ID')
+        +input('text', 'display_name', 'Display Name')
+        +button('Go')
+      //.footer
+        a(href='#') Forgot your password?
+ script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+ script(src='/auth/js/login.mat-design.js')

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[ $# -lt 1 ] && { echo Usage: `basename $0` '<path-to-nodejs>' ; exit 1; }
+
+NODE_JS=$1
+
+[ -f "$NODE_JS" ] || { echo Error : $NODE_JS does not exist; exit 1; }
+[ -L "$NODE_JS" ] && { echo Error : $NODE_JS is a symbolic link; ls -l $NODE_JS; exit 1; }
+
+set -x
+sudo apt-get install libcap2-bin
+sudo setcap cap_net_bind_service=+ep $NODE_JS
+

@@ -1,0 +1,71 @@
+#!/bin/bash
+
+. common.sh
+BASENAME=`basename $0`
+QUIET='-sS'
+TMP_JSON=__$BASENAME.json$$
+TMP_STDOUT=__$BASENAME.stdout.$$
+TMP_STDERR=__$BASENAME.stderr..$$
+FILTER='.sent_via = "script"'
+
+trap "rm -f $TMP_JSON $TMP_STDOUT $TMP_STDERR; exit" SIGHUP SIGINT SIGTERM EXIT
+#set -e
+#
+# Update Subscription
+#
+
+function usage {
+	echo Usage : $0 'class-config [ -h host [ -p user:password ] [ options ]';
+	echo   'options:';
+	echo    '   --starts-in : <time-in-seconds>';
+	echo    '   --duration  : <time-in-seconds>';
+	echo    '   --chatty    : speak a little more';
+	exit 1;
+}
+
+[ $# -lt 1 ] && { usage; }
+
+CONFIG_FILE=$1; shift;
+
+[ ! -f $CONFIG_FILE ] && { echo Config Profile $CONFIG_FILE non-existent; exit 1; }
+
+while [ $# -gt 0 ];
+do
+		[ "$1" == "-h" ] && { HOST=$2; shift; }
+		[ "$1" == "-p" ] && { USERPASSWORD=$2; shift; }
+		[ "$1" == "--chatty" ] && { QUIET='-v';}
+		[ "$1" == "--starts-in" ] && { 
+			[ "$2" == '' ] && { usage; }
+			__NOW=`date -Iseconds`
+			STARTS_IN=`date -Iseconds -d $__NOW' +'$2' seconds'`
+			FILTER=$FILTER' | .time_spec.starts = "'$STARTS_IN'"'; 
+			shift;
+		}
+		[ "$1" == "--duration" ] && { 
+			[ "$2" == '' ] && { usage; }
+			FILTER=$FILTER' | .time_spec.duration = "'$2'"'; 
+			shift;
+		}
+		shift
+done;
+
+#
+# Apply filters from the command line
+#
+cat $CONFIG_FILE | $JQ "$FILTER" > $TMP_JSON
+
+[ "$USERPASSWORD" != "" ] && { USERPASSWORD='-u '$USERPASSWORD; }
+[ "$HOST" == "" ] && {
+		export HOST=http://localhost:2178;
+}
+
+STATUS_CODE='\n\n - HTTP-CODE:%{http_code}'
+curl $QUIET $USERPASSWORD -k -w "$STATUS_CODE" -H "Content-Type: application/json" -X POST -d @$TMP_JSON $HOST/api/class/v1/create > $TMP_STDOUT 2> $TMP_STDERR
+
+RET=$?
+[ $RET -eq 0 ] && { print_json $TMP_STDOUT; }
+[ $RET -ne 0 ] && { cat $TMP_STDOUT $TMP_STDERR; }
+
+rm -f $TMP_STDOUT $TMP_STDERR
+
+echo

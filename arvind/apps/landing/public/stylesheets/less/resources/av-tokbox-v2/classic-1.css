@@ -1,0 +1,369 @@
+/*
+ * Class theme layout parameters */
+/*--------------------------------------------------*
+ *
+ * NAVIGATION BAR
+ *
+ *--------------------------------------------------*/
+/*
+ * Reusable media queries
+ */
+/*
+ * AV - Widths for different media 
+ */
+.OT_publisher,
+.OT_subscriber {
+  min-width: initial !important;
+  min-height: initial !important;
+}
+.OT_widget-container {
+  background-color: transparent !important;
+}
+.OT_widget-container .OT_video-loading {
+  height: 0;
+  width: 0;
+  display: none !important;
+}
+.OT_widget-container .OT_video-poster {
+  height: 0;
+  width: 0;
+  display: none !important;
+}
+.OT_widget-container video {
+  display: none;
+}
+.OT_widget-container .av-streaming video {
+  display: block;
+}
+button.OT_edge-bar-item.OT_mute.OT_mode-auto {
+  display: none !important;
+}
+@media screen and (max-height: 642px) {
+  /*
+	 * Video height = primary-video + secondary-video height
+	 *    secondary-video height = 1/4 of primary-video
+	 *    primary-video height = 3/4 of width
+	 *        hence, total height = 15/16 of width
+	 */
+  .av-visible.av-primary {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  body.av-fullscreen .av-visible.av-primary {
+    height: calc(100% - 112.5px/2);
+  }
+  .av-visible.av-secondary {
+    align-self: flex-end;
+    width: 25%;
+    height: 20%;
+    z-index: 10;
+  }
+  body.av-fullscreen .av-visible.av-secondary {
+    width: 75px;
+    height: 56.25px;
+  }
+  body.av-tiled .av-visible.av-secondary {
+    min-height: calc(32vw * 2.8 / 4);
+  }
+  .av-visible.av-screenshare {
+    position: absolute;
+    margin: 0;
+    left: calc(150px + 10px);
+    width: calc(100vw - 150px - 10px * 2 - 10px);
+    height: calc(100vh - 55px - 10px);
+  }
+  .av-visible.av-full {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+  }
+  .av-visible.av-pip {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 50px;
+    height: 37.5px;
+    z-index: 12;
+    border: 1px solid white;
+  }
+}
+@media screen and (min-height: 643px) and (max-height: 800px) {
+  /*
+	 * Video height = primary-video + secondary-video height
+	 *    secondary-video height = 1/4 of primary-video
+	 *    primary-video height = 3/4 of width
+	 *        hence, total height = 15/16 of width
+	 */
+  .av-visible.av-primary {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  body.av-fullscreen .av-visible.av-primary {
+    height: calc(100% - 240px/2);
+  }
+  .av-visible.av-secondary {
+    align-self: flex-end;
+    width: 25%;
+    height: 20%;
+    z-index: 10;
+  }
+  body.av-fullscreen .av-visible.av-secondary {
+    width: 160px;
+    height: 120px;
+  }
+  body.av-tiled .av-visible.av-secondary {
+    min-height: calc(32vw * 2.8 / 4);
+  }
+  .av-visible.av-screenshare {
+    position: absolute;
+    margin: 0;
+    left: calc(320px + 10px);
+    width: calc(100vw - 320px - 10px * 2 - 10px);
+    height: calc(100vh - 55px - 10px);
+  }
+  .av-visible.av-full {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+  }
+  .av-visible.av-pip {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 106.66666667px;
+    height: 80px;
+    z-index: 12;
+    border: 1px solid white;
+  }
+}
+@media screen and (min-height: 801px) and (max-height: 1080px) {
+  /*
+	 * Video height = primary-video + secondary-video height
+	 *    secondary-video height = 1/4 of primary-video
+	 *    primary-video height = 3/4 of width
+	 *        hence, total height = 15/16 of width
+	 */
+  .av-visible.av-primary {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  body.av-fullscreen .av-visible.av-primary {
+    height: calc(100% - 240px/2);
+  }
+  .av-visible.av-secondary {
+    align-self: flex-end;
+    width: 25%;
+    height: 20%;
+    z-index: 10;
+  }
+  body.av-fullscreen .av-visible.av-secondary {
+    width: 160px;
+    height: 120px;
+  }
+  body.av-tiled .av-visible.av-secondary {
+    min-height: calc(32vw * 2.8 / 4);
+  }
+  .av-visible.av-screenshare {
+    position: absolute;
+    margin: 0;
+    left: calc(320px + 10px);
+    width: calc(100vw - 320px - 10px * 2 - 10px);
+    height: calc(100vh - 55px - 10px);
+  }
+  .av-visible.av-full {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+  }
+  .av-visible.av-pip {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 106.66666667px;
+    height: 80px;
+    z-index: 12;
+    border: 1px solid white;
+  }
+}
+@media screen and (min-height: 1081px) {
+  /*
+	 * Video height = primary-video + secondary-video height
+	 *    secondary-video height = 1/4 of primary-video
+	 *    primary-video height = 3/4 of width
+	 *        hence, total height = 15/16 of width
+	 */
+  .av-visible.av-primary {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  body.av-fullscreen .av-visible.av-primary {
+    height: calc(100% - 315px/2);
+  }
+  .av-visible.av-secondary {
+    align-self: flex-end;
+    width: 25%;
+    height: 20%;
+    z-index: 10;
+  }
+  body.av-fullscreen .av-visible.av-secondary {
+    width: 210px;
+    height: 157.5px;
+  }
+  body.av-tiled .av-visible.av-secondary {
+    min-height: calc(32vw * 2.8 / 4);
+  }
+  .av-visible.av-screenshare {
+    position: absolute;
+    margin: 0;
+    left: calc(420px + 10px);
+    width: calc(100vw - 420px - 10px * 2 - 10px);
+    height: calc(100vh - 55px - 10px);
+  }
+  .av-visible.av-full {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+  }
+  .av-visible.av-pip {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    width: 140px;
+    height: 105px;
+    z-index: 12;
+    border: 1px solid white;
+  }
+}
+#av-wrap,
+#av-containers {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  border-width: 0px;
+  border-style: none;
+}
+#av-containers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+body.av-tiled #av-containers {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+}
+.av-container {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+}
+.av-container.av-shunya {
+  height: 0px;
+  width: 0px;
+}
+.av-container.av-visible.av-secondary:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -moz-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+}
+.av-container.av-visible.av-connected {
+  background-image: url('https://lh6.googleusercontent.com/-pL53uK2k-x8/AAAAAAAAAAI/AAAAAAAAAnw/WnxuROVOEYw/photo.jpg');
+  background-image: url('http://37.media.tumblr.com/4ffa5869f6600fbcad83f5ee8284c106/tumblr_n32ub3H32w1six59bo2_r1_250.gif');
+  background-position: center;
+  background-repeat: repeat;
+  background-size: auto;
+}
+.av-container.av-visible.av-connected video {
+  display: none;
+}
+.av-container.av-visible.av-streaming {
+  background-color: black;
+}
+.av-container.av-visible.av-streaming video {
+  display: block;
+}
+/*
+ * Menu related 
+ */
+#av-menu-outer {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  max-width: 100%;
+  margin: 0px auto 0px auto;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#av-menu-outer .btn {
+  margin: 2px;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+#av-menu-outer .btn span {
+  text-shadow: none;
+  color: white;
+  font-size: 1.6em;
+}
+#av-menu-outer .btn span.fa-phone.fa-flip-vertical {
+  color: red;
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

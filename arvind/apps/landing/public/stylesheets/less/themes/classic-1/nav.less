@@ -1,0 +1,15 @@
+@import "./variables.less";
+@import "../../mixins/elements";
+
+/*
+ * Does'nt seem to work */
+svg path#Bounds {
+	fill : transparent;
+}
+svg path {
+	fill : @brand-primary;
+
+	.disabled & {
+		fill : @navbar-default-link-disabled-color;
+	}
+}

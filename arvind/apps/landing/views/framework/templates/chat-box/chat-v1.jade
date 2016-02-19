@@ -1,0 +1,14 @@
+.lcb-room-chat
+	.lcb-room-header
+		.lcb-room-meta
+			.lcb-room-heading
+				include chat.svg
+
+	.lcb-messages-container
+		ul.lcb-messages(aria-live="polite")
+
+	.lcb-notification-bar
+
+	form.lcb-entry
+		textarea.lcb-entry-input(placeholder="Got Something To Say", autofocus)
+		button.lcb-entry-button.fa.fa-check.text-success(type="submit")

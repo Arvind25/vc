@@ -1,0 +1,26 @@
+doctype
+html( lang="en" )
+	head
+		title WizIQ Virtual Classroom
+		meta( charset='utf-8' )
+		meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+		meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+		meta( name='description', content='WizIQ Virtual Classroom' )
+		//link(href="/stylesheets/less/bootstrap-themes-3.3.5/superhero/bootstrap.min.css", rel="stylesheet")
+		link(href="/landing/stylesheets/ext/bootstrap.min.css", type="text/css", rel="stylesheet")
+		link(href="/landing/stylesheets/ext/bootstrap-theme.min.css", type="text/css", rel="stylesheet")
+		link(href="/landing/stylesheets/less/layouts/" + layout + ".less", type="text/css", rel="stylesheet/less")
+
+		each i in styles
+			each _c in i.css
+				link(href="/landing/stylesheets/less/resources/" + i.resource + '/' + _c + ".css", type="text/css", rel="stylesheet")
+
+		link.theme-link(href="/landing/stylesheets/less/themes/" + theme + ".less", type="text/css", rel="stylesheet/less")
+
+		link(href="/landing/stylesheets/ext/font-awesome.min.css", type="text/css", rel="stylesheet")
+		script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
+		script( src='/landing/javascripts/ext/bootstrap.3.3.5.min.js' )
+		script( src='/landing/javascripts/ext/less.js', type='text/javascript' )
+		script( src='/landing/javascripts/generic/ext/require.js', data-main='/landing/javascripts/generic/framework/init', type='text/javascript' )
+
+

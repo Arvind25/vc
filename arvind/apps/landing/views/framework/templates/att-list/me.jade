@@ -1,0 +1,12 @@
+.atl-me
+	.atl-avatar-wrap(style="display: inline-block;")
+		img.atl-avatar(src="#{avatar}")
+	.atl-user-meta(style="display:inline-block")
+		.atl-user-meta-header.border-bottom
+			span.atl-username.text-warning #{displayName} (Me)
+			time.atl-join-time.text-info #{time}
+		.atl-user-meta-others
+			span.atl-useremail.text-warning #{email}
+			span.atl-authvia.text-info via: #{authvia}
+		//include controlbar
+

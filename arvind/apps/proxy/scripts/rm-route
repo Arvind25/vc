@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#
+# Set relative location to the repository root ("common" dir)
+#
+RELATIVE_ROOT=../../..
+BASENAME=`basename $0`
+
+. common.sh
+QUIET=
+PROXY_PORT=3141
+#
+#
+# Update Subscription
+#
+
+function usage {
+	echo Usage : $BASENAME 'key [ -h host ]';
+	exit 1;
+}
+
+[ $# -lt 1 ] && { usage; }
+
+KEY=$1; shift;
+
+parse_optional_args $*;
+
+[ "$HOST" == "" ] && {
+		export HOST=http://localhost:$PROXY_PORT;
+}
+
+curl $QUIET $USERPASSWORD -k -H "Content-Type: application/json" -X POST -d '{
+	"key" : "'$KEY'"
+}' $HOST/api/route/remove
+
+echo

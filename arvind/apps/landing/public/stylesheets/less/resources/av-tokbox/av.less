@@ -1,0 +1,57 @@
+@avcontrols-height : 30px;
+@element-gap : 5px;
+@pub-vid-height : 405px;
+
+.avcontrols {
+  position: absolute;
+  max-width: 100%;
+  height: @avcontrols-height;
+}
+
+.avcs {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  border-width:1px;
+  border-style:solid;
+}
+
+.avpo {
+	position: absolute;
+	top: 0px;
+	height: @pub-vid-height + @element-gap + @avcontrols-height;
+	max-width: 100%;
+	left: 0px;
+	right: 0px;
+}
+
+.avpc {
+	position: absolute;
+	top: 0px;
+	height: @pub-vid-height;
+	max-width: 100%;
+	left: 0px;
+	right: 0px;
+}
+
+.avpmenu {
+	position: absolute;
+	top: @pub-vid-height + @element-gap;
+	height: @avcontrols-height;
+	max-width: 100%;
+	left: 0px;
+	right: 0px;
+}
+
+@remote-vid-con-height : 90px;
+.avsc {
+	position: absolute;
+	top: @pub-vid-height + @element-gap + @avcontrols-height + @element-gap;
+	height: @remote-vid-con-height;
+	bottom: @element-gap;
+	max-width: 100%;
+	left: 0px;
+	right: 0px;
+}
+

@@ -1,0 +1,33 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    |     
+    title Elastic Login Form
+    |         
+    link(rel='stylesheet', href='css/login.css')
+body
+    // Google Font - Work Sans
+    link(href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700', rel='stylesheet', type='text/css')
+    .container
+      .profile
+        button#toggleProfile.profile__avatar
+          img(src='images/googleplus-revised.png', alt='Avatar')
+        |     
+        form.profile__form
+          .profile__fields
+            .field
+              input#fieldUser.input(type='text', required='', pattern='.*\S.*')
+              |           
+              label.label(for='fieldUser') Username
+            |         
+            .field
+              input#fieldPassword.input(type='password', required='', pattern='.*\S.*')
+              |           
+              label.label(for='fieldPassword') Password
+            |         
+            .profile__footer
+              button.btn Login
+    |         
+    script(src='js/login.js')
+
+

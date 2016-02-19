@@ -1,0 +1,27 @@
+@import "variables.less";
+
+@notify-outer-padding : 1px;
+
+#widget-notify.vc-widget.outer {
+	padding: @notify-outer-padding;
+}
+
+#widget-notify .main-inner {
+	padding: 0px;
+}
+
+@notify-box-height : (@widget-notify-height - 2 * @notify-outer-padding);
+#widget-notify > .main-inner > .box {
+	margin: 1px;
+	border: 1px solid @color-white;
+	width: @widget-notify-height;
+	height: @notify-box-height;
+	color: @widget-fg-color;
+	background-color: @widget-bg-color;
+	text-align: center;
+}
+
+#widget-notify > .main-inner > .box:hover {
+	color: @widget-bg-color;
+	background-color: @widget-fg-color;
+}

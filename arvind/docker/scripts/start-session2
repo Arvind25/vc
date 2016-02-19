@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -e
+
+function abs_path () {
+    target=$1;
+    cd $target > /dev/null 2>&1;
+    [ $? -ne 0 ] && { echo Error : directory \"$target\" does not exist > /dev/stderr; exit 1; }
+    pwd
+    cd - > /dev/null 2>&1;
+}
+
+#
+# Process the arguments
+#
+[ $# -lt 2 ] && { echo Usage : `basename $0` '<session-dir> <container-name>'; exit 1;}
+
+SESS_DIR=$1; shift;
+#PORT=$1; shift;
+NAME=$1; shift;
+
+#
+# Do some checks
+#
+
+ABS_PATH=`abs_path $SESS_DIR`
+IMAGE='wiziq/session:v2.2'
+INTERNAL_PORT=3179
+#
+# Start
+#
+echo '#########################################################'
+echo '#'
+echo '# Starting docker image : ' $IMAGE
+echo '# <session-dir>         : ' $ABS_PATH '<==' $SESS_DIR
+echo '# <port>                : ' $PORT'->'$INTERNAL_PORT
+echo '# <name>                : ' $NAME
+echo '#'
+echo '#########################################################'
+
+#sudo docker run --log-driver=fluentd -t -d -p $PORT:$INTERNAL_PORT -v $ABS_PATH:/session --name $NAME $IMAGE
+sudo docker run -dt -p $INTERNAL_PORT -v $ABS_PATH:/session --name $NAME $IMAGE
+
+sudo docker logs --follow $NAME
+

@@ -1,0 +1,40 @@
+@import "./variables.less";
+@import "./mixins.less";
+
+#widget-av {
+	margin-top:   @nav-height-effective;
+	margin-left:  @padding-side;
+	margin-right: @gutter-northsouth / 2;
+	position:     absolute;
+	left:         0;
+	padding:      0px;
+
+	.main-inner {
+		width: 100%;
+		height: 100%;
+	}
+
+	.menu-outer {
+		height : @av-menu-height;
+	}
+
+	#av-ot-screenshare-wrap {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.set-av-size(@width, @height) {
+	#widget-av {
+		width      : @width;
+		height     : @height;
+	}
+
+	body.av-fullscreen #widget-av,
+	body.av-tiled #widget-av {
+		width       : calc(~'100% - @{padding-side} * 2');
+		height      : calc(~'100% - @{nav-height-effective}');
+		margin-right: @padding-side;
+		margin-bottom:   @margin-bottom;
+	}
+}

@@ -1,0 +1,36 @@
+.OT_publisher, .OT_subscriber {
+	min-width: initial !important;
+	min-height: initial !important;
+}
+
+.OT_widget-container {
+	background-color: transparent !important;
+
+	.OT_video-loading {
+		height: 0;
+		width: 0;
+		display: none !important;
+	}
+
+	.OT_video-poster {
+		height: 0;
+		width: 0;
+		display: none !important;
+	}
+
+	video {
+		display: none;
+	}
+
+	.av-streaming video {
+		display: block;
+	}
+}
+
+button.OT_edge-bar-item.OT_mute.OT_mode-auto {
+	display: none !important;
+}
+
+.OT_bar.OT_edge-bar-item.OT_mode-auto {
+    display: none !important;
+}

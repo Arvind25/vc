@@ -1,0 +1,175 @@
+@import "../mixins/elements";
+
+@font-face {
+	font-family: 'quicksand';
+	src: url('./fonts/quicksand/Quicksand_Light.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'dense';
+	src: url('./fonts/dense/Dense-Regular.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Outage';
+	src: url('./fonts/Outage/Outage.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p {
+	font-family:'quicksand', 'Sans-serif';
+}
+
+h1 {
+	font-size: 30px;
+}
+
+p {
+	font-size: 20px;
+}
+
+.shadow-more {
+	box-shadow: 0px 16px 50px -10px #228DFF;
+	-webkit-box-shadow: 0px 16px 50px -10px #228DFF;
+	-moz-box-shadow: 0px 16px 50px -10px #228DFF;
+}
+
+.shadow-lighter {
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+#vc-main-outer {
+	background-color: #222222;
+	background: repeating-linear-gradient(
+	45deg,
+	#400000,
+	#400000 6px,
+	#222222 6px,
+	#222222 12px
+	);
+}
+
+#vc-main-inner {
+	/*
+	background-image: url('images/rusty1.jpg');
+	background-repeat : repeat;
+	*/
+}
+
+#widget-nav {
+	color: white;
+	padding: 5px;
+}
+
+#widget-nav .nav-inner {
+	span.vc-menu-icon {
+		font-size : 28px;
+		margin-top: 10px;
+		margin-left: 20px;
+	}
+}
+
+#widget-notify {
+}
+
+#widget-side-left {
+}
+
+#widget-tabs {
+	background-color: rgba(50, 20, 80, 0.25);
+	color: rgba(50, 20, 80, 1);
+	.shadow-more;
+}
+
+#widget-av {
+	background-color: rgb(32, 0, 0);
+	.shadow-more;
+}
+
+#widget-chat {
+	background-color: rgba(30, 5, 50, 0.95);
+	color: white;
+	.shadow-more;
+}
+
+#widget-side-right {
+}
+
+/*----------------------------------------------
+ * 
+ * Resource specific themeing
+ *
+ *----------------------------------------------*/
+
+/* Flipboard */
+
+.bb-shadow() {
+	box-shadow: inset 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0px 0px 20px 4px rgba(0, 0, 0, 0.2);
+}
+#widget-tabs .bb-item {
+	background-color: rgb(240, 240, 244);
+	background-repeat: repeat;
+	.bb-shadow;
+}
+
+#widget-tabs .bb-content {
+	background-color: rgb(240, 240, 244);
+	background-repeat: repeat;
+	.bb-shadow;
+}
+
+#widget-tabs .bb-flipoverlay {
+	background-color: rgb(200, 200, 210);
+	background-repeat: repeat;
+	.bb-shadow;
+}
+
+#av-menu-outer.avpmenu {
+	background: rgba(200, 200, 255, 0.2);
+}
+
+/* cube */
+.inner-shadow2(@horizontal:0, @vertical:1px, @blur:2px, @color:rgba(0, 0, 0, 0.4)) {
+	-webkit-box-shadow: inset @horizontal @vertical @blur @color;
+	-moz-box-shadow: inset @horizontal @vertical @blur @color;
+	box-shadow: inset @horizontal @vertical @blur @color;
+}
+
+.cube > div {
+	position: absolute;
+	border: 1px solid rgba(153, 202, 235, 0.8);
+	background: rgba(153,202,235,0.5);
+	.inner-shadow2(0, 0, 10px, rgba(255, 255, 255, 0.6));
+	box-sizing: border-box;
+	padding: 10px;
+	height: 100%;
+	width: 100%;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.center .cube > div {
+	position: absolute;
+	border: 1px solid rgba(153, 202, 235, 0.1);
+	background: rgba(153,202,235,0.3);
+	.inner-shadow2(0, 0, 40px, rgba(255, 255, 255, 0.6));
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	color: #fff;
+	line-height: 120px;
+	text-align: center;
+	font-size: 120px;
+	padding-top: 40px;
+}
